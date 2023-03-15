@@ -28,6 +28,9 @@ onMounted(() => {
         <p>{{ event.time }} on {{ event.date }} @ {{ event.location }}</p>
         <p>{{ event.description }}</p>
     </div>
+    <div v-else>
+        <p>Event doesn't exist</p>
+    </div>
 </template>
 
 <style>
