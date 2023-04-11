@@ -5,6 +5,12 @@ defineProps({
     required: true,
   },
 });
+
+const selector = {
+  selectorColor: "#f95959",
+  selectorText: "click me :)",
+  display: false
+}
 </script>
 
 <template>
@@ -15,6 +21,25 @@ defineProps({
     <div class="event-card">
       <h2>{{ event.title }}</h2>
       <span>@{{ event.time }} on {{ event.date }}</span>
+      <div
+        v-show=selector.display
+        class="color-selector"
+        :style="{ backgroundColor: selector.selectorColor }"
+      >
+      <!-- Same as below
+        <div
+          class="color-selector"
+          :style="'background-color': selector.selectorColor"
+        > 
+      -->
+      <!-- Interpreted as below
+        <div
+          class="color-selector"
+          style="background-color: #f95959"
+        > 
+      -->
+      
+      </div>
     </div>
   </RouterLink>
 </template>
@@ -35,5 +60,12 @@ defineProps({
 .event-link {
   color: #2c3e50;
   text-decoration: none;
+}
+
+.color-selector {
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid #d8d8d8;
+  border-radius: 50%;
 }
 </style>
